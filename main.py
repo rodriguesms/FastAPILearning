@@ -1,10 +1,18 @@
 from fastapi import FastAPI
 from typing import Optional
+from pydantic import BaseModel
+import uvicorn
+
+# test main file | only for practice
+# to run the aplication, create and start a python enviroment folder
+# install the depedencies on enviroment
+# remember to update the pip
+
 
 app = FastAPI()
 
-#path operation decorator
-#path operation function
+# path operation decorator
+# path operation function
 
 @app.get('/')
 def Home():
@@ -40,6 +48,17 @@ def Comments(id):
     #fetch comments of blog with id = id
     return {'data': {'1', '2'}} 
 
+
+class Blog(BaseModel):
+    title: str
+    body: str
+    published: Optional[bool]
+
+
 @app.post('/blog')
-def Create_Blog():
-    return {'data' : "Blog is created"}
+def Create_Blog(blog: Blog):
+    return {'data' : f"Blog was created with title as {blog.title}."}
+
+
+#if __name__ == "__main__":
+#   uvicorn.run(app, host="127.0.0.1", port=9000)
