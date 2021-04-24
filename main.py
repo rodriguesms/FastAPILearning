@@ -5,7 +5,7 @@ import uvicorn
 
 # test main file | only for practice
 # to run the aplication, create and start a python enviroment folder
-# install the depedencies on enviroment
+# install the depedencies on requirements.txt
 # remember to update the pip
 
 
